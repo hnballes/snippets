@@ -41,18 +41,18 @@ alt.Chart(brain).mark_bar().encode(
 ```
 
 ##MAP
-###puntos en el mapa
+##puntos en el mapa
 points = alt.Chart(temp).mark_circle().encode(
     latitude="lat",
     longitude="lon",
     color=alt.Color("mean(temp)",scale=alt.Scale(domain=[-30,10,40],range=["lightblue","orange","red"]))
 )
-###dibujar el mapa de fondo
-### remote geojson data object
+##dibujar el mapa de fondo
+## remote geojson data object
 url = "https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson"
 data_geojson_remote = alt.Data(url=url, format=alt.DataFormat(property='features',type='json'))
 
-# chart object
+## chart object
 background = alt.Chart(data_geojson_remote).mark_geoshape(
     fill="lightgrey",
     stroke="white"
